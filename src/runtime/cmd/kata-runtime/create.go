@@ -28,7 +28,7 @@ var createCLICommand = cli.Command{
    are starting. The name you provide for the container instance must be unique
    on your host.`,
 	Description: `The create command creates an instance of a container for a bundle. The
-   bundle is a directory with a specification file named "` + specConfig + `" and a
+   bundle is a directory with a specification file named "config.json" and a
    root filesystem.
    The specification file includes an args parameter. The args parameter is
    used to specify command(s) that get run when the container is started.

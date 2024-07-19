@@ -14,7 +14,7 @@ import (
 	"github.com/urfave/cli"
 )
 
-var noteText = `Use "` + name + ` list" to identify container statuses.`
+var noteText = `Use "kata-runtime list" to identify container statuses.`
 
 var pauseCLICommand = cli.Command{
 	Name:  "pause",
