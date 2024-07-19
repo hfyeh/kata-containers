@@ -27,11 +27,11 @@ var deleteCLICommand = cli.Command{
    <container-id> is the name for the instance of the container.
 
 EXAMPLE:
-   If the container id is "ubuntu01" and ` + name + ` list currently shows the
+   If the container id is "ubuntu01" and kata-runtime list currently shows the
    status of "ubuntu01" as "stopped" the following will delete resources held
-   for "ubuntu01" removing "ubuntu01" from the ` + name + ` list of containers:
+   for "ubuntu01" removing "ubuntu01" from the kata-runtime list of containers:
 
-       # ` + name + ` delete ubuntu01`,
+       # kata-runtime delete ubuntu01`,
 	Flags: []cli.Flag{
 		cli.BoolFlag{
 			Name:  "force, f",

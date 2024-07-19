@@ -21,7 +21,7 @@ var specCLICommand = cli.Command{
 	Name:      "spec",
 	Usage:     "create a new specification file",
 	ArgsUsage: "",
-	Description: `The spec command creates the new specification file named "` + specConfig + `" for
+	Description: `The spec command creates the new specification file named "config.json" for
 the bundle.
 
 The spec generated is just a starter file. Editing of the spec is required to
@@ -44,7 +44,7 @@ command in a new hello-world container named container1:
     mkdir rootfs
     tar -C rootfs -xf hello-world.tar
     kata-runtime spec
-    sed -i 's;"sh";"/hello";' ` + specConfig + `
+    sed -i 's;"sh";"/hello";' config.json
     kata-runtime run container1
 
 In the run command above, "container1" is the name for the instance of the

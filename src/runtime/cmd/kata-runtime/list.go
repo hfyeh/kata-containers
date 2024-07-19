@@ -81,19 +81,19 @@ type formatTabular struct{}
 
 var listCLICommand = cli.Command{
 	Name:  "list",
-	Usage: "lists containers started by " + name + " with the given root",
+	Usage: "lists containers started by kata-runtime with the given root",
 	ArgsUsage: `
 
 Where the given root is specified via the global option "--root"
-(default: "` + defaultRootDirectory + `").
+(default: "/var/lib/kata-containers").
 
 EXAMPLE 1:
 To list containers created via the default "--root":
-       # ` + name + ` list
+       # kata-runtime list
 
 EXAMPLE 2:
 To list containers created using a non-default value for "--root":
-       # ` + name + ` --root value list`,
+       # kata-runtime --root value list`,
 	Flags: []cli.Flag{
 		cli.StringFlag{
 			Name:  "format, f",
@@ -106,7 +106,7 @@ To list containers created using a non-default value for "--root":
 		},
 		cli.BoolFlag{
 			Name:  "kata-all",
-			Usage: "display all available " + project + " information",
+			Usage: "display all available Kata Containers information",
 		},
 	},
 	Action: func(context *cli.Context) error {
