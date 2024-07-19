@@ -116,6 +116,20 @@ var runtimeFlags = []cli.Flag{
 // runtimeCommands is the list of supported command-line (sub-)
 // commands.
 var runtimeCommands = []cli.Command{
+	createCLICommand,
+	deleteCLICommand,
+	execCLICommand,
+	killCLICommand,
+	listCLICommand,
+	pauseCLICommand,
+	psCLICommand,
+	resumeCLICommand,
+	runCLICommand,
+	specCLICommand,
+	startCLICommand,
+	stateCLICommand,
+	updateCLICommand,
+	eventsCLICommand,
 	versionCLICommand,
 
 	// Kata Containers specific extensions
@@ -123,6 +137,8 @@ var runtimeCommands = []cli.Command{
 	kataEnvCLICommand,
 	kataExecCLICommand,
 	kataMetricsCLICommand,
+	kataNetworkCLICommand,
+	kataOverheadCLICommand,
 	factoryCLICommand,
 	kataVolumeCommand,
 	kataIPTablesCommand,
