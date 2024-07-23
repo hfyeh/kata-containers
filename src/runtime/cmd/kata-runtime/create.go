@@ -7,15 +7,21 @@
 package main
 
 import (
-	"context"
-	"errors"
-	"fmt"
-	"os"
+	// "context"
+	// "errors"
+	// "fmt"
+	// "os"
 
-	"github.com/kata-containers/kata-containers/src/runtime/pkg/katautils"
-	vc "github.com/kata-containers/kata-containers/src/runtime/virtcontainers"
-	"github.com/kata-containers/kata-containers/src/runtime/virtcontainers/pkg/compatoci"
-	"github.com/kata-containers/kata-containers/src/runtime/virtcontainers/pkg/oci"
+	// "github.com/hfyeh/runtime/pkg/katautils"
+	// "github.com/kata-containers/kata-containers/src/runtime/pkg/katautils"
+	// "github.com/kata-containers/kata-containers/src/runtime/pkg/katautils/katatrace"
+	vc "github.com/hfyeh/runtime/virtcontainers"
+	// vc "github.com/kata-containers/kata-containers/src/runtime/virtcontainers"
+	// vc "runtime-1.12.1/virtcontainers"
+  // Same user new
+	// "github.com/kata-containers/kata-containers/src/runtime/virtcontainers/pkg/compatoci"
+  // Diff use new
+	// "github.com/kata-containers/kata-containers/src/runtime/pkg/oci"
 	"github.com/urfave/cli"
 )
 
@@ -61,32 +67,33 @@ var createCLICommand = cli.Command{
 		},
 	},
 	Action: func(context *cli.Context) error {
-		ctx, err := cliContextToContext(context)
+		_, err := cliContextToContext(context)
 		if err != nil {
 			return err
 		}
 
-		runtimeConfig, ok := context.App.Metadata["runtimeConfig"].(oci.RuntimeConfig)
-		if !ok {
-			return errors.New("invalid runtime config")
-		}
+    return err
+		// runtimeConfig, ok := context.App.Metadata["runtimeConfig"].(oci.RuntimeConfig)
+		// if !ok {
+			// return errors.New("invalid runtime config")
+		// }
 
-		console, err := setupConsole(context.String("console"), context.String("console-socket"))
-		if err != nil {
-			return err
-		}
+		// console, err := setupConsole(context.String("console"), context.String("console-socket"))
+		// if err != nil {
+			// return err
+		// }
 
-		return create(ctx, context.Args().First(),
-			context.String("bundle"),
-			console,
-			context.String("pid-file"),
-			true,
-			context.Bool("systemd-cgroup"),
-			runtimeConfig,
-		)
+		// return create(ctx, context.Args().First(),
+			// context.String("bundle"),
+			// console,
+			// context.String("pid-file"),
+			// true,
+			// context.Bool("systemd-cgroup"),
+			// runtimeConfig,
+		// )
 	},
 }
-
+/*
 func create(ctx context.Context, containerID, bundlePath, console, pidFilePath string, detach, systemdCgroup bool,
 	runtimeConfig oci.RuntimeConfig) error {
 	var err error
@@ -183,3 +190,4 @@ func createPIDFile(ctx context.Context, pidFilePath string, pid int) error {
 
 	return nil
 }
+*/
