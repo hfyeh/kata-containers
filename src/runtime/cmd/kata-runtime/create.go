@@ -7,17 +7,18 @@
 package main
 
 import (
-	"context"
-	"errors"
-	"fmt"
-	"os"
+	// "context"
+	// "errors"
+	// "fmt"
+	// "os"
 
-	"github.com/kata-containers/kata-containers/src/runtime/pkg/katautils"
-	vc "github.com/kata-containers/kata-containers/src/runtime/virtcontainers"
-	"github.com/kata-containers/kata-containers/src/runtime/virtcontainers/pkg/compatoci"
-	"github.com/kata-containers/kata-containers/src/runtime/virtcontainers/pkg/oci"
+	// "github.com/kata-containers/kata-containers/src/runtime/pkg/katautils"
+	// vc "github.com/kata-containers/kata-containers/src/runtime/virtcontainers"
+	// "github.com/kata-containers/kata-containers/src/runtime/virtcontainers/pkg/compatoci"
+	// "github.com/kata-containers/kata-containers/src/runtime/virtcontainers/pkg/oci"
 	"github.com/urfave/cli"
 )
+
 
 var createCLICommand = cli.Command{
 	Name:  "create",
@@ -60,6 +61,7 @@ var createCLICommand = cli.Command{
 			Usage: "warning: this flag is meaningless to kata-runtime, just defined in order to be compatible with docker in ramdisk",
 		},
 	},
+    /*
 	Action: func(context *cli.Context) error {
 		ctx, err := cliContextToContext(context)
 		if err != nil {
@@ -85,8 +87,9 @@ var createCLICommand = cli.Command{
 			runtimeConfig,
 		)
 	},
+    */
 }
-
+/*
 func create(ctx context.Context, containerID, bundlePath, console, pidFilePath string, detach, systemdCgroup bool,
 	runtimeConfig oci.RuntimeConfig) error {
 	var err error
@@ -183,3 +186,4 @@ func createPIDFile(ctx context.Context, pidFilePath string, pid int) error {
 
 	return nil
 }
+*/
