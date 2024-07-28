@@ -61,7 +61,40 @@ var createCLICommand = cli.Command{
 			Usage: "warning: this flag is meaningless to kata-runtime, just defined in order to be compatible with docker in ramdisk",
 		},
 	},
-    /*
+
+
+
+	assert := assert.New(t)
+
+	mockSandbox.CreateContainerFunc = func(containerConfig vc.ContainerConfig) (vc.VCContainer, error) {
+		return &vcmock.Container{}, nil
+	}
+
+	defer func() {
+		mockSandbox.CreateContainerFunc = nil
+	}()
+
+	_, bundlePath, ociConfigFile := ktu.SetupOCIConfigFile(t)
+
+	spec, err := compatoci.ParseConfigJSON(bundlePath)
+	assert.NoError(err)
+
+	// set expected container type and sandboxID
+	spec.Annotations = make(map[string]string)
+	spec.Annotations[testContainerTypeAnnotation] = testContainerTypeContainer
+	spec.Annotations[testSandboxIDAnnotation] = testSandboxID
+
+	// rewrite file
+	err = ktu.WriteOCIConfigFile(spec, ociConfigFile)
+	assert.NoError(err)
+
+	rootFs := vc.RootFs{Mounted: true}
+
+	for _, disableOutput := range []bool{true, false} {
+		_, err = CreateContainer(context.Background(), mockSandbox, spec, rootFs, testContainerID, bundlePath, disableOutput, false)
+		assert.NoError(err)
+	}
+
 	Action: func(context *cli.Context) error {
 		ctx, err := cliContextToContext(context)
 		if err != nil {
@@ -87,7 +120,6 @@ var createCLICommand = cli.Command{
 			runtimeConfig,
 		)
 	},
-    */
 }
 /*
 func create(ctx context.Context, containerID, bundlePath, console, pidFilePath string, detach, systemdCgroup bool,
